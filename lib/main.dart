@@ -13,6 +13,11 @@ class RandoGo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "RandoGo",
+      theme: Theme.of(context).copyWith(
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+          primary: const Color(0x009143FF),
+        )
+      ),
       home: Text("todo"),
       /*initialRoute: MaPremiereRoute.routeName,
       routes: {
