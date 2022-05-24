@@ -18,7 +18,7 @@ class RandoGo extends StatelessWidget {
           primary: const Color(0x009143FF),
         )
       ),
-      home: Text("todo"),
+      home: Login(),
       /*initialRoute: MaPremiereRoute.routeName,
       routes: {
         MaPremiereRoute.routeName : (context) => MaPremiereRoute(),
