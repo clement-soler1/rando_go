@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class RGTextInput extends StatelessWidget {
-  static String routeName = '/login';
   final String label;
   final double width;
   final bool obscureText;

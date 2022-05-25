@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
-  static String routeName = '/login';
 
   @override
   Widget build(BuildContext context) {
