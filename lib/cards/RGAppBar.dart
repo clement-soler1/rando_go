@@ -12,13 +12,6 @@ class RGAppBar extends StatelessWidget with PreferredSizeWidget{
       centerTitle: true,
       backgroundColor: Color(0xFF247000),
       foregroundColor: Colors.white,
-      leading: Padding(
-          padding: EdgeInsets.only(left: 15),
-          child: IconButton(
-              onPressed: () => {},
-              icon: const Icon(Icons.menu),
-          )
-      ),
     );
   }
 }
