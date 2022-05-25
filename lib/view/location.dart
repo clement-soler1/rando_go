@@ -8,6 +8,8 @@ class Location extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: RGAppBar(),
+        body: RGMap(),
     );
   }
 }
+
