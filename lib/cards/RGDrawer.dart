@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rando_go/all_layout.dart';
 
 class RGDrawer extends StatelessWidget {
 
@@ -21,10 +22,8 @@ class RGDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             iconColor: Colors.white,
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => MainMenu()));
             },
           ),
           ListTile(
@@ -32,10 +31,8 @@ class RGDrawer extends StatelessWidget {
             leading: Icon(Icons.account_circle),
             iconColor: Colors.white,
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => Account()));
             },
           ),
           ListTile(
@@ -43,10 +40,8 @@ class RGDrawer extends StatelessWidget {
             leading: Icon(Icons.directions_walk),
             iconColor: Colors.white,
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => Location()));
             },
           ),
           ListTile(
@@ -54,9 +49,6 @@ class RGDrawer extends StatelessWidget {
             leading: Icon(Icons.add_circle),
             iconColor: Colors.white,
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
             },
           ),
