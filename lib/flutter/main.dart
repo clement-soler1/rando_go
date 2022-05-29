@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:rando_go/flutter/all_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rando_go/flutter/model/user.dart';
 
 void main() {
-  runApp(const RandoGo());
+  runApp(RandoGo());
 }
 
 class RandoGo extends StatelessWidget {
-  const RandoGo({Key? key}) : super(key: key);
+  RandoGo({Key? key}) : super(key: key);
+
+  User? currentUser = null;
 
   // This widget is the root of your application.
   @override
@@ -19,7 +22,7 @@ class RandoGo extends StatelessWidget {
           textTheme: GoogleFonts.interTextTheme(),
           primaryColor: const Color(0xFF009143),
       ),
-      home: MainMenu(),
+      home: Login(),
       /*initialRoute: MaPremiereRoute.routeName,
       routes: {
         MaPremiereRoute.routeName : (context) => MaPremiereRoute(),

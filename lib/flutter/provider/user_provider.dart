@@ -10,8 +10,7 @@ class UserProvider with ChangeNotifier {
 
   // Variable priv ́ee pour qu'elle ne puisse pas ^etre modifi ́ee par
   // les widgets qui l'utilisent
-  List _users = [
-  ];
+  List _users = [];
 
   // Getter pour l'acc`es en lecture
   // Pas de modificiation possible gr^ace au type UnmodifiableListView
@@ -21,7 +20,7 @@ class UserProvider with ChangeNotifier {
   // via le serveur en local
   void fetchData() async {
     try {
-      http.Response response = await http.get(Uri.parse('$host/api/profiles'));
+      http.Response response = await http.get(Uri.parse('$host/api/users'));
       if (response.statusCode == 200) {
         /*_profiles = (json.decode(response.body) as List)
             .map((profileJson) => Profile.fromJson(profileJson))
@@ -33,9 +32,15 @@ class UserProvider with ChangeNotifier {
           _users.add(User(imagePath: obj["imagePath"], name: obj["name"], email: obj["email"],firstname: obj["firstname"],password: obj["password"],phonenumber: obj["phonenumber"]));
         }
         notifyListeners();
+        print("done");
       }
     } catch (e) {
       rethrow;
     }
+  }
+
+  void test() {
+    print("££££££££££££££££££££££££££");
+    print(_users.length);
   }
 }
