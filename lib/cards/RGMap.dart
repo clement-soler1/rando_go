@@ -11,22 +11,38 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class RGMap extends StatefulWidget {
   double lat;
   double long;
+  Set<Marker>? markers;
 
+  final Set<Marker> set = new Set.from([]);
 
   RGMap(
-      {this.lat = 43.137365,
-        this.long = 6.021006}
+      {this.lat = 0.0,
+        this.long = 0.0,
+        this.markers}
       );
+
+  static RGMapState? of(BuildContext context) => context.findAncestorStateOfType<RGMapState>();
+
+  void setCameraPos(camPos) {
+    print("ssssssssssssssssss");
+    State<RGMap> createState() => RGMapState(camTarget: camPos);
+  }
 
   @override
   State<RGMap> createState() => RGMapState();
+
 }
 
 class RGMapState extends State<RGMap> {
+  LatLng camTarget;
+  RGMapState({
+    this.camTarget = const LatLng(0.0, 0.0),
+});
+
   Completer<GoogleMapController> _controller = Completer();
 
   static CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(43.137365, 6.021006),
+    target: LatLng(0.0, 0.0),
     zoom: 14.4746,
   );
 
@@ -44,9 +60,13 @@ class RGMapState extends State<RGMap> {
       zoom: 14.4746,
     );
 
+    print('====================');
+    print(LatLng(widget.lat, widget.long));
+
     return GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.terrain,
         initialCameraPosition: _kGooglePlex,
+        markers: widget.markers ?? new Set<Marker>(),
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
@@ -57,4 +77,14 @@ class RGMapState extends State<RGMap> {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
   }*/
+
+  Future<void> goTo(LatLng pos) async {
+    print("Try goto");
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+      target: pos,
+      zoom: 14.4746,
+    )));
+  }
+
 }

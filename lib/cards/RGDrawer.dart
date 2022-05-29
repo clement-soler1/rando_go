@@ -41,7 +41,7 @@ class RGDrawer extends StatelessWidget {
             iconColor: Colors.white,
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => Location()));
+                  builder: (context) => RGLocation()));
             },
           ),
           ListTile(
