@@ -19,7 +19,7 @@ class RandoGo extends StatelessWidget {
           textTheme: GoogleFonts.interTextTheme(),
           primaryColor: const Color(0xFF009143),
       ),
-      home: RGLocation(),
+      home: MainMenu(),
       /*initialRoute: MaPremiereRoute.routeName,
       routes: {
         MaPremiereRoute.routeName : (context) => MaPremiereRoute(),
