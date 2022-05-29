@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rando_go/all_layout.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const RandoGo());
@@ -14,12 +15,11 @@ class RandoGo extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "RandoGo",
-      theme: Theme.of(context).copyWith(
-        colorScheme: Theme.of(context).colorScheme.copyWith(
-          primary: const Color(0x009143FF),
-        )
+      theme: ThemeData(
+          textTheme: GoogleFonts.interTextTheme(),
+          primaryColor: const Color(0xFF009143),
       ),
-      home: Location(),
+      home: Account(),
       /*initialRoute: MaPremiereRoute.routeName,
       routes: {
         MaPremiereRoute.routeName : (context) => MaPremiereRoute(),
