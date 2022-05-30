@@ -43,6 +43,9 @@ dependencies:
   #location : allow to use the GPS
   location: ^4.4.0
 
+  #password security
+  encrypt: ^5.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

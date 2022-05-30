@@ -22,25 +22,35 @@ class UserProvider with ChangeNotifier {
     try {
       http.Response response = await http.get(Uri.parse('$host/api/users'));
       if (response.statusCode == 200) {
-        /*_profiles = (json.decode(response.body) as List)
-            .map((profileJson) => Profile.fromJson(profileJson))
-            .toList();*/
-        _users = [];
+        _users = (json.decode(response.body) as List)
+            .map((profileJson) => User.fromJson(profileJson))
+            .toList();
+        /*_users = [];
         var tab = json.decode(response.body) as List;
         for (var obj in tab) {
           //_users.add(Profile(obj['firstname'],obj['name'],obj['photo'],obj['phonenumber'],obj['birthdate']));
           _users.add(User(imagePath: obj["imagePath"], name: obj["name"], email: obj["email"],firstname: obj["firstname"],password: obj["password"],phonenumber: obj["phonenumber"]));
-        }
+        }*/
         notifyListeners();
-        print("done");
       }
     } catch (e) {
       rethrow;
     }
   }
 
-  void test() {
-    print("££££££££££££££££££££££££££");
-    print(_users.length);
+  // Ajouter un user dans la base de donnees
+  Future<void> addUser(User newUser) async {
+    try {
+      http.Response response = await http.post(
+        Uri.parse('$host/api/create_user'),
+        body: json.encode(newUser.toJson()),
+        headers: {'Content-type': 'application/json'},
+      );
+      if (response.statusCode == 200) {
+        notifyListeners();
+      }
+    } catch (e) {
+      rethrow;
+    }
   }
 }

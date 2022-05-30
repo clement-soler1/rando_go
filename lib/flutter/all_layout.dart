@@ -7,3 +7,5 @@ export 'package:rando_go/flutter/view/account_edit.dart';
 export 'package:rando_go/flutter/view/rg_location.dart';
 export 'package:rando_go/flutter/view/mainmenu.dart';
 export 'package:rando_go/flutter/view/orders.dart';
+export 'package:rando_go/flutter/view/create_user.dart';
+export 'package:rando_go/flutter/view/user_created.dart';
