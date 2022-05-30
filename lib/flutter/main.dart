@@ -29,6 +29,7 @@ class RandoGo extends StatelessWidget {
         MainMenu.routeName : (context) => MainMenu(),
         CreateUser.routeName : (context) => CreateUser(),
         UserCreated.routeName : (context) => UserCreated(),
+        Account.routeName : (context) => Account(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == "/app") {
