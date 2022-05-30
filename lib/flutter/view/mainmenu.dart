@@ -19,10 +19,10 @@ class MainMenu extends StatelessWidget {
                       child :Text("RandoGo",style: TextStyle(color: Colors.white,fontSize: 45),),
                       padding: EdgeInsets.only(bottom: 70),
                     ),
-                    RGButton(label: "Navigation", width: 300, height: 100),
-                    RGButton(label: "Créer une randonnée", width: 300, height: 100),
-                    RGButton(label: "Mon Compte", width: 300, height: 100),
-                    RGButton(label: "Quitter", width: 300, height: 100),
+                    RGButton(label: "Navigation", width: 300, height: 100,onPressed: () => {},),
+                    RGButton(label: "Créer une randonnée", width: 300, height: 100,onPressed: () => {},),
+                    RGButton(label: "Mon Compte", width: 300, height: 100,onPressed: () => {},),
+                    RGButton(label: "Quitter", width: 300, height: 100,onPressed: () => {},),
                   ],
                 )
 

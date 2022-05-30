@@ -51,7 +51,9 @@ class Login extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 20),
                   child:TextButton(
-                    onPressed: () => {},
+                    onPressed: () => {
+                    Navigator.pushNamed(context,"/create_user")
+                    },
                     child: Text("Vous n'avez pas de compte ? Créez en un",
                       style: TextStyle(color: Colors.white),
                     ),
@@ -75,7 +77,7 @@ class Login extends StatelessWidget {
       RandoGo.currentUser = usr;
       print("connected");
 
-      Navigator.pushNamed(context,"app");
+      Navigator.pushNamed(context,"/app");
 
     } else {
       print("Bad credentials !");

@@ -23,13 +23,15 @@ class RandoGo extends StatelessWidget {
           primaryColor: const Color(0xFF009143),
       ),
       //home: Login(),
-      initialRoute: "app",
+      initialRoute: "/app",
       routes: {
         Login.routeName : (context) => Login(),
         MainMenu.routeName : (context) => MainMenu(),
+        CreateUser.routeName : (context) => CreateUser(),
+        UserCreated.routeName : (context) => UserCreated(),
       },
       onGenerateRoute: (settings) {
-        if (settings.name == "app") {
+        if (settings.name == "/app") {
           //final Data arguments = settings.arguments as Data;
           if (RandoGo.currentUser != null) {
             return MaterialPageRoute(builder: (context) {

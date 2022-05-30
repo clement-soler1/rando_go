@@ -5,10 +5,13 @@ class RGButton extends StatelessWidget {
   final double width;
   final double height;
 
+  final GestureTapCallback onPressed;
+
   RGButton(
       {required this.label,
         required this.width,
         required this.height,
+        required this.onPressed,
         }
       );
 
@@ -20,7 +23,7 @@ class RGButton extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF424242)),
               ),
-              onPressed: () => {},
+              onPressed: this.onPressed,
               child: Text(this.label,style: TextStyle(color: Colors.white, fontSize: 24,),)
           ),
           width: this.width,

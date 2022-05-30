@@ -37,4 +37,20 @@ class UserProvider with ChangeNotifier {
       rethrow;
     }
   }
+
+  // Ajouter un user dans la base de donnees
+  Future<void> addUser(User newUser) async {
+    try {
+      http.Response response = await http.post(
+        Uri.parse('$host/api/create_user'),
+        body: json.encode(newUser.toJson()),
+        headers: {'Content-type': 'application/json'},
+      );
+      if (response.statusCode == 200) {
+        notifyListeners();
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
