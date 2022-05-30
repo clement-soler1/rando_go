@@ -8,29 +8,24 @@ import 'package:rando_go/flutter/model/Rando.dart';
 class RandoProvider with ChangeNotifier {
   final String host = 'http://localhost:80';
 
-  // Variable priv ́ee pour qu'elle ne puisse pas ^etre modifi ́ee par
-  // les widgets qui l'utilisent
-  List _users = [];
+  List _randos = [];
 
-  // Getter pour l'acc`es en lecture
-  // Pas de modificiation possible gr^ace au type UnmodifiableListView
-  UnmodifiableListView get users => UnmodifiableListView(_users);
+  UnmodifiableListView get randos => UnmodifiableListView(_randos);
 
-  // M ́ethode pour aller chercher des donn ́ees dans la base de donn ́ees
-  // via le serveur en local
+  //recupération des randos
   void fetchData() async {
     try {
       http.Response response = await http.get(Uri.parse('$host/api/randos'));
       if (response.statusCode == 200) {
-        _users = (json.decode(response.body) as List)
+        _randos = (json.decode(response.body) as List)
             .map((profileJson) => Rando.fromJson(profileJson))
             .toList();
-        /*_users = [];
-        var tab = json.decode(response.body) as List;
-        for (var obj in tab) {
-          //_users.add(Profile(obj['firstname'],obj['name'],obj['photo'],obj['phonenumber'],obj['birthdate']));
-          _users.add(User(imagePath: obj["imagePath"], name: obj["name"], email: obj["email"],firstname: obj["firstname"],password: obj["password"],phonenumber: obj["phonenumber"]));
-        }*/
+        print("Randos loaded !");
+
+        _randos.forEach( (r) => {
+          r.getPointFromBDD()
+        });
+
         notifyListeners();
       }
     } catch (e) {
@@ -39,7 +34,7 @@ class RandoProvider with ChangeNotifier {
   }
 
   // Ajouter un user dans la base de donnees
-  Future<void> addUser(Rando newRando) async {
+  Future<void> addRando(Rando newRando) async {
     try {
       http.Response response = await http.post(
         Uri.parse('$host/api/create_rando'),

@@ -4,6 +4,7 @@ import 'dart:collection'; // nouveaux types de listes comme UnmodifiableListView
 import 'dart:convert'; // pour decoder la r ́eponse http
 //import of model
 import 'package:rando_go/flutter/model/Point.dart';
+import 'package:rando_go/flutter/model/Rando.dart';
 
 class PointProvider with ChangeNotifier {
   final String host = 'http://localhost:80';
@@ -54,17 +55,23 @@ class PointProvider with ChangeNotifier {
   }
 
   //get point of a rando
-  void fetchRandoPoint(int rando_id) async {
+  void fetchRandoPoints(Rando rando) async {
     try {
-      http.Response response = await http.get(Uri.parse('$host/api/users'));
+      http.Response response = await http.get(Uri.parse('$host/api/getRandoPoints'));
       if (response.statusCode == 200) {
         List all_points = (json.decode(response.body) as List)
-            .map((profileJson) => Point.fromJson(profileJson))
+            .map((json) => Point.fromJson(json))
             .toList();
 
         _points = [];
         _points.addAll(all_points);
-        _points.retainWhere((point) => point.rando_id == rando_id);
+        _points.retainWhere((point) => point.rando_id == rando.id);
+
+        _points.forEach( (p) => {
+          rando.addPoint(p)
+        });
+
+        print("Rando points loaded !");
 
         notifyListeners();
       }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rando_go/flutter/all_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rando_go/flutter/model/user.dart';
+import 'package:rando_go/flutter/model/Rando.dart';
 
 void main() {
   runApp(RandoGo());
@@ -11,6 +12,7 @@ class RandoGo extends StatelessWidget {
   RandoGo({Key? key}) : super(key: key);
 
   static User? currentUser = null;
+  static List<Rando> availableRando = [];
 
   // This widget is the root of your application.
   @override

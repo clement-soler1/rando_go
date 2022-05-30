@@ -1,5 +1,6 @@
 import 'dart:collection';
 import 'package:rando_go/flutter/model/Point.dart';
+import 'package:rando_go/flutter/provider/point_provider.dart';
 
 
 class Rando {
@@ -36,7 +37,8 @@ class Rando {
   }
 
   void getPointFromBDD() {
-
+    var provider = PointProvider();
+    provider.fetchRandoPoints(this);
   }
 
 }
