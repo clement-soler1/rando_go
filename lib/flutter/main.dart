@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rando_go/flutter/all_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rando_go/flutter/model/user.dart';
+import 'package:rando_go/flutter/view/create_user.dart';
 
 void main() {
   runApp(RandoGo());
@@ -22,7 +23,7 @@ class RandoGo extends StatelessWidget {
           textTheme: GoogleFonts.interTextTheme(),
           primaryColor: const Color(0xFF009143),
       ),
-      home: Login(),
+      home: CreateUser(),
       /*initialRoute: MaPremiereRoute.routeName,
       routes: {
         MaPremiereRoute.routeName : (context) => MaPremiereRoute(),
