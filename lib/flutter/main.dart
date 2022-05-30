@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rando_go/flutter/all_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rando_go/flutter/model/user.dart';
-import 'package:rando_go/flutter/view/create_user.dart';
 
 void main() {
   runApp(RandoGo());
@@ -11,7 +10,7 @@ void main() {
 class RandoGo extends StatelessWidget {
   RandoGo({Key? key}) : super(key: key);
 
-  User? currentUser = null;
+  static User? currentUser = null;
 
   // This widget is the root of your application.
   @override
@@ -23,26 +22,30 @@ class RandoGo extends StatelessWidget {
           textTheme: GoogleFonts.interTextTheme(),
           primaryColor: const Color(0xFF009143),
       ),
-      home: CreateUser(),
-      /*initialRoute: MaPremiereRoute.routeName,
+      //home: Login(),
+      initialRoute: "app",
       routes: {
-        MaPremiereRoute.routeName : (context) => MaPremiereRoute(),
+        Login.routeName : (context) => Login(),
+        MainMenu.routeName : (context) => MainMenu(),
       },
       onGenerateRoute: (settings) {
-        if (settings.name == MaSecondeRoute.routeName) {
-          final Data arguments = settings.arguments as Data;
-          return MaterialPageRoute(builder: (context) {
-            return MaSecondeRoute(
-              title: arguments.title,
-              content: arguments.content,
-            );
-          },
-          );
+        if (settings.name == "app") {
+          //final Data arguments = settings.arguments as Data;
+          if (RandoGo.currentUser != null) {
+            return MaterialPageRoute(builder: (context) {
+              return MainMenu();
+            });
+          } else {
+            return MaterialPageRoute(builder: (context) {
+              return Login();
+            });
+          }
         }
       },
       onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (context) => NotFound());
-      },*/
+        //return MaterialPageRoute(builder: (context) => NotFound());
+        return MaterialPageRoute(builder: (context) => MainMenu());
+      },
     );
   }
 }
