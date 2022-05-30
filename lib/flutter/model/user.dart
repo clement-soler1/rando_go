@@ -1,12 +1,12 @@
 class User {
-  final String imagePath;
-  final String firstname;
-  final String name;
-  final String email;
-  final String password;
-  final String phonenumber;
+  String imagePath;
+  String firstname;
+  String name;
+  String email;
+  String password;
+  String phonenumber;
 
-  const User({
+  User({
     required this.imagePath,
     required this.name,
     required this.email,
