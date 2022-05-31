@@ -27,8 +27,9 @@ class CreateUser extends StatelessWidget {
                 Text("Creer un compte", style: TextStyle(color: Colors.white,fontSize: 35)),
                 Padding(padding: EdgeInsets.all(30)),
                 ProfileWidget(imagePath: 'images/profile.png', isEdit: true, onClicked: () {},),
+                Padding(padding: EdgeInsets.all(30)),
                 //Image(image: AssetImage('images/profile.png')),
-                Row(
+             /*   Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Prénom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
@@ -59,7 +60,8 @@ class CreateUser extends StatelessWidget {
                 Padding(padding: EdgeInsets.all(10)),
                 RGButton(label: "Creer mon compte", width: 350, height: 50,onPressed: () => {
                   handleUserCreation(context,prenom_controller.text, nom_controller.text, pwd_controller.text, email_controller.text)
-                },)
+                },)*/
+                UserForm()
               ],
             ),
           ),
@@ -80,5 +82,126 @@ class CreateUser extends StatelessWidget {
     print("user added !");
 
     Navigator.pushNamed(context,"/user_created");
+  }
+}
+
+class UserForm extends StatefulWidget {
+  const UserForm({key});
+
+  @override
+  UserFormState createState() {
+    return UserFormState();
+  }
+}
+
+class UserFormState extends State<UserForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 400.0,
+            child: Row(
+              children: [
+                Text("Prénom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
+                new Flexible(
+                  child: new TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Ce champ est obligatoire';
+                      }
+                      return null;
+                    },
+                  ),
+                )
+
+              ],
+            ),
+          ),
+          Padding(padding: EdgeInsets.all(10)),
+          Container(
+            width: 400.0,
+            child: Row(
+              children: [
+                Text("Nom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
+                new Flexible(
+                  child: new TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Ce champ est obligatoire';
+                      }
+                      return null;
+                    },
+                  ),
+                )
+
+              ],
+            ),
+          ),
+          Padding(padding: EdgeInsets.all(10)),
+          Container(
+            width: 400.0,
+            child: Row(
+              children: [
+                Text("Mot de passe : ",style: TextStyle(color: Colors.white,fontSize: 25),),
+                new Flexible(
+                  child: new TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Ce champ est obligatoire';
+                      }
+                      return null;
+                    },
+                  ),
+                )
+
+              ],
+            ),
+          ),
+          Padding(padding: EdgeInsets.all(10)),
+          Container(
+            width: 400.0,
+            child: Row(
+              children: [
+                Text("Email : ",style: TextStyle(color: Colors.white,fontSize: 25),),
+                new Flexible(
+                  child: new TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Ce champ est obligatoire';
+                      }
+                      return null;
+                    },
+                  ),
+                )
+
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                onPrimary: Colors.black,
+                primary: Colors.white
+              ),
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Sauvegarde en cours')),
+                  );
+                }
+              },
+              child: const Text('Submit'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
