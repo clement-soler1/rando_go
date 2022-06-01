@@ -4,6 +4,7 @@ import 'dart:collection'; // nouveaux types de listes comme UnmodifiableListView
 import 'dart:convert'; // pour decoder la r ́eponse http
 //import of model
 import 'package:rando_go/flutter/model/Rando.dart';
+import 'package:rando_go/flutter/main.dart';
 
 class RandoProvider with ChangeNotifier {
   final String host = 'http://localhost:80';
@@ -21,6 +22,11 @@ class RandoProvider with ChangeNotifier {
             .map((profileJson) => Rando.fromJson(profileJson))
             .toList();
         print("Randos loaded !");
+
+        RandoGo.availableRando = [];
+        _randos.forEach( (r) => {
+          RandoGo.availableRando.add(r)
+        });
 
         _randos.forEach( (r) => {
           r.getPointFromBDD()

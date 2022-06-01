@@ -71,6 +71,8 @@ class Login extends StatelessWidget {
   void connect(username,password,userlist,context) {
     String cryptedPwd = Security.encrypt(password);
 
+    print(cryptedPwd);
+
     User? usr = userlist.firstWhere((user) => user.email==username && user.password==cryptedPwd, orElse: () => null);
 
     if (usr != null) {
