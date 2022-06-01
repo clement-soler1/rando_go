@@ -39,6 +39,7 @@ dependencies:
   #gmaps dependie import:
   google_maps_flutter: ^2.1.6
   google_maps_flutter_web: ^0.3.3
+  custom_info_window: ^1.0.1
 
   #location : allow to use the GPS
   location: ^4.4.0
