@@ -21,10 +21,10 @@ class RGButton extends StatelessWidget {
         SizedBox(
           child :TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF424242)),
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF424242).withOpacity(0.70)),
               ),
               onPressed: this.onPressed,
-              child: Text(this.label,style: TextStyle(color: Colors.white, fontSize: 24,),)
+              child: Text(this.label,style: TextStyle(color: Colors.white, fontSize: 24),)
           ),
           width: this.width,
           height: this.height,
