@@ -31,9 +31,7 @@ class Create_Point extends StatelessWidget {
         ],
       ),
       drawer: RGDrawer(),
-      bottomNavigationBar: RGBottomBarCreation(),
-
-
+      bottomNavigationBar: RGBottomBarCreation(isCreating: true,onClicked: () {}),
     );
   }
 }

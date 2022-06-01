@@ -28,39 +28,6 @@ class CreateUser extends StatelessWidget {
                 Padding(padding: EdgeInsets.all(30)),
                 ProfileWidget(imagePath: 'images/profile.png', isEdit: true, onClicked: () {},),
                 Padding(padding: EdgeInsets.all(30)),
-                //Image(image: AssetImage('images/profile.png')),
-             /*   Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Prénom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
-                    RGTextInput(label:"Prénom", width: 200, obscureText: false, controller: prenom_controller,),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Nom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
-                    RGTextInput(label:"Nom", width: 200, obscureText: false,controller: nom_controller,),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Mot de passe : ",style: TextStyle(color: Colors.white,fontSize: 25),),
-                    RGTextInput(label:"Mot de passe", width: 200, obscureText: true, controller: pwd_controller,),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Email : ",style: TextStyle(color: Colors.white,fontSize: 25),),
-                    RGTextInput(label:"Email", width: 200, obscureText: false,controller: email_controller,),
-                  ],
-                ),
-                Padding(padding: EdgeInsets.all(10)),
-                RGButton(label: "Creer mon compte", width: 350, height: 50,onPressed: () => {
-                  handleUserCreation(context,prenom_controller.text, nom_controller.text, pwd_controller.text, email_controller.text)
-                },)*/
                 UserForm()
               ],
             ),

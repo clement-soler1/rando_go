@@ -14,103 +14,71 @@ class MapPointState extends State<MapPoint>{
   Location location = new Location();
   LocationData? _locationData;
 
-  Set<Marker> map_markers = new Set<Marker>();
-  Marker pos_marker = Marker(
-    markerId: MarkerId("pos_marker"),
-    position: LatLng(43.137365, 6.021006),
-  );
-
-  RGMap location_map = RGMap();
-
-  void initiateLocalisation() async {
-    //get the current location
-
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        return;
-      }
-    }
-
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        return;
-      }
-    }
-
-    _locationData = await location.getLocation();
-
-    location.onLocationChanged.listen((LocationData currentLocation) {
-      print("test");
-      print(currentLocation);
-      LatLng cur_pos = LatLng(currentLocation.latitude ?? 0.0, currentLocation.longitude ?? 0.0);
-
-      print('b marker');
-      map_markers.remove(pos_marker);
-      Marker new_pos_marker = Marker(
-        markerId: MarkerId("pos_marker"),
-        position: cur_pos,
-        icon: customIconPos,
-      );
-
-      print('o marker');
-      pos_marker = new_pos_marker;
-      map_markers.add(pos_marker);
-      print('e marker');
-
-      print('b goto');
-/*
-      location_map.setCameraPos(cur_pos);
-*/
-      print('e goto');
-
-      //location_map.goTo()
-    });
-  }
+  GoogleMapController? mapController;
 
   @override
   Widget build(BuildContext context) {
 
-    pos_marker = Marker(
-      markerId: MarkerId("pos_marker"),
-      position: LatLng(0, 0),
-      icon: customIconPos,
-    );
-    map_markers.add(pos_marker);
-
-    location_map = RGMap(markers: map_markers,);
+    List<Marker> map_markers = [];
 
     return Scaffold(
       appBar: RGAppBar(),
       //appBar: ,
-      body: location_map,
+      body: GoogleMap(
+        mapType: MapType.terrain,
+        initialCameraPosition: CameraPosition(target: LatLng(0.0, 0.0)),
+        markers: Set<Marker>.from(map_markers),
+        onMapCreated: _onMapCreated,
+        myLocationEnabled: true,
+        myLocationButtonEnabled: true,
+        compassEnabled: true,
+        zoomControlsEnabled: false,
+      ),
       drawer: RGDrawer(),
-      bottomNavigationBar: RGBottomBarCreation(),
+      bottomNavigationBar: RGBottomBarCreation(onClicked: () {}),
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            top: 140,
+            right: 0,
+            child: FloatingActionButton(
+              backgroundColor: Color(0xFF247000),
+              onPressed: () {/* Do something */},
+              child: const Icon(
+                Icons.touch_app,
+                size: 40,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 210,
+            right: 0,
+            child: FloatingActionButton(
+              backgroundColor: Color(0xFF247000),
+              onPressed: () {
+                Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => Create_Point()),
+              );},
+              child: const Icon(
+                Icons.add_location_alt,
+                size: 40,
+              ),
+            ),
+          ),
+          // Add more floating buttons if you want
+          // There is no limit
+        ],
+      ),
     );
   }
 
-  BitmapDescriptor customIconPos = BitmapDescriptor.defaultMarker;
-  // make sure to initialize before map loading
-  getIcons() async {
-    //Position custom icon
-    var iconPos = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(size: Size(16,16)),
-        "images/position.png");
-    setState(() {
-      this.customIconPos = iconPos;
-    });
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
   }
 
   @override
   void initState() {
-    getIcons();
-    initiateLocalisation();
     super.initState();
   }
 }
