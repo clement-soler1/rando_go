@@ -13,11 +13,15 @@ class MapPoint extends StatefulWidget {
 class MapPointState extends State<MapPoint>{
 
   GoogleMapController? mapController;
+  List<Marker> map_markers = [];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-
-    List<Marker> map_markers = [];
 
     return Scaffold(
       appBar: RGAppBar(),
@@ -30,12 +34,11 @@ class MapPointState extends State<MapPoint>{
         myLocationButtonEnabled: true,
         compassEnabled: true,
         zoomControlsEnabled: false,
-        onTap: (LatLng latLng) {
-          map_markers.add(Marker(markerId: MarkerId('mark'), position: latLng));
-          setState(() {});
-          print(latLng);
-        },
-        markers: Set<Marker>.from(map_markers),
+        markers: Set.from(map_markers),
+        onTap: _handleTap,
+        /*  map_markers.add(Marker(markerId: MarkerId('mark'), position: latLng));
+          this.markers: Set.from(map_markers);
+          markers: Set.from(map_markers),*/
       ),
       drawer: RGDrawer(),
       bottomNavigationBar: RGBottomBarCreation(onClicked: () {}),
@@ -66,8 +69,15 @@ class MapPointState extends State<MapPoint>{
     mapController = controller;
   }
 
-  @override
-  void initState() {
-    super.initState();
+  _handleTap(LatLng latLng) {
+    setState(() {
+      map_markers = []; // Mettre en comentaire si on veut plusieur markers
+      map_markers.add(
+        Marker(
+            markerId: MarkerId(latLng.toString()),
+            position: latLng,
+        )
+      );
+    });
   }
 }
