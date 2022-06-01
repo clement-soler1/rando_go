@@ -65,7 +65,9 @@ class MapPointState extends State<MapPoint>{
       print('e marker');
 
       print('b goto');
+/*
       location_map.setCameraPos(cur_pos);
+*/
       print('e goto');
 
       //location_map.goTo()

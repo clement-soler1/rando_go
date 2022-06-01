@@ -7,3 +7,4 @@ export 'package:rando_go/flutter/cards/RGDrawer.dart';
 export 'package:rando_go/flutter/cards/RGBottomBar.dart';
 export 'package:rando_go/flutter/cards/RGBottomBarCreation.dart';
 export 'package:rando_go/flutter/cards/RGRandoInfoWindow.dart';
+export 'package:rando_go/flutter/cards/RGDescription.dart';
