@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rando_go/flutter/cards/all_cards.dart';
 import 'package:rando_go/flutter/provider/rando_provider.dart';
 
@@ -35,7 +36,7 @@ class MainMenu extends StatelessWidget {
                       Navigator.pushNamed(context,"/account")
                     },),
                     RGButton(label: "Quitter", width: 300, height: 100,onPressed: () => {
-
+                      SystemChannels.platform.invokeMethod('SystemNavigator.pop')
                     },),
                   ],
                 )

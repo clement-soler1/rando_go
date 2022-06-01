@@ -64,6 +64,7 @@ class UserForm extends StatefulWidget {
 class UserFormState extends State<UserForm> {
   final _formKey = GlobalKey<FormState>();
 
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -196,9 +197,12 @@ class UserFormState extends State<UserForm> {
               ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
+                  //_formKey.currentState.save();
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Sauvegarde en cours')),
                   );
+
+                  Navigator.pushNamed(context,"/app");
                 }
               },
               child: const Text('Submit'),
