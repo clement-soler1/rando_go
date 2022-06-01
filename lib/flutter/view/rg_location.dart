@@ -119,35 +119,21 @@ class RGLocationState extends State<RGLocation> {
 
     //print(RandoGo.availableRando);
     RandoGo.availableRando.forEach((r) {
-      Marker new_marker = Marker(
-        markerId: MarkerId("Rando_marker_" + r.name),
-        position: LatLng(r.points[0].lat,r.points[0].long),
-        icon: customIconRando,
-        onTap: () {
-          /*_customInfoWindowController.addInfoWindow!(
-            RGRandoInfoWindow(
-                title: r.name,
-                desc: "Rando crée par : " + r.creator,
-                onPressed: () => {
-                  print("yeah")
-                }
-            ),
-              LatLng(r.points[0].lat,r.points[0].long)
-          );*/
-
-          //TO DO : lancer la rando
-          RandoGo.currentRando = r;
-          Navigator.pushNamed(context,"/follow_rando/map",);
-        },
-        /*infoWindow: InfoWindow(
-          title: r.name,
-          snippet: "Rando crée par : " + r.creator,
+      if (r.points.length != 0) {
+        Marker new_marker = Marker(
+          markerId: MarkerId("Rando_marker_" + r.name),
+          position: LatLng(r.points[0].lat,r.points[0].long),
+          icon: customIconRando,
+          onTap: () {
 
 
-        )*/
-      );
+            RandoGo.currentRando = r;
+            Navigator.pushNamed(context,"/follow_rando/map",);
+          },
 
-      map_markers.add(new_marker);
+        );
+        map_markers.add(new_marker);
+      }
     });
 
     return Scaffold(
