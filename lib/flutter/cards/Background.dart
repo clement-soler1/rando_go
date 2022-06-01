@@ -10,7 +10,7 @@ class Background extends StatelessWidget {
         image: DecorationImage(
             image: AssetImage("images/bkg.png"),
             fit: BoxFit.cover),
-      ), // Foreground widget here
+      ),
     );
   }
 }

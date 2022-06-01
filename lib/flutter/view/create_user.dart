@@ -77,8 +77,6 @@ class CreateUser extends StatelessWidget {
     var provider = UserProvider();
     provider.addUser(newUser);
 
-    print("user added !");
-
     Navigator.pushNamed(context,"/user_created");
   }
 }

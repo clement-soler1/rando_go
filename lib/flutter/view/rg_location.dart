@@ -7,8 +7,6 @@ import 'package:rando_go/flutter/main.dart';
 import 'package:custom_info_window/custom_info_window.dart';
 
 
-
-
 class RGLocation extends StatefulWidget {
   static String routeName = '/location';
   @override
@@ -16,16 +14,11 @@ class RGLocation extends StatefulWidget {
 }
 
 class RGLocationState extends State<RGLocation> {
-  //const LocationState({Key? key}) : super(key: key);
 
   Location location = new Location();
   LocationData? _locationData;
 
-  List<Marker> map_markers = [];//new Set<Marker>();
-  /*Marker pos_marker = Marker(
-    markerId: MarkerId("pos_marker"),
-    position: LatLng(43.137365, 6.021006),
-  );*/
+  List<Marker> map_markers = [];
 
   GoogleMap? location_map;
   GoogleMapController? mapController;
@@ -43,81 +36,9 @@ class RGLocationState extends State<RGLocation> {
     mapController = controller;
   }
 
-  /*void initiateLocalisation() async {
-    //get the current location
-
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        return;
-      }
-    }
-
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        return;
-      }
-    }
-
-    _locationData = await location.getLocation();
-
-    location.onLocationChanged.listen((LocationData currentLocation) {
-
-      LatLng cur_pos = LatLng(currentLocation.latitude ?? 0.0, currentLocation.longitude ?? 0.0);
-
-      map_markers.remove(pos_marker);
-      Marker new_pos_marker = Marker(
-        markerId: MarkerId("pos_marker"),
-        position: cur_pos,
-        icon: customIconPos,
-      );
-
-      pos_marker = new_pos_marker;
-      map_markers.add(pos_marker);
-
-
-     /* mapController?.moveCamera(
-          CameraUpdate.newCameraPosition(
-            CameraPosition(target: cur_pos ,zoom: 17.0),
-          ),
-      );*/
-
-      //upDateMarkers(map_markers);
-      //print("markers updated");
-
-    });
-  }*/
-
   @override
   Widget build(BuildContext context) {
 
-    //definition des markers de la page
-    //marker de position du joueur
-    /*pos_marker = Marker(
-      markerId: MarkerId("pos_marker"),
-      position: LatLng(0, 0),
-      icon: customIconPos,
-    );*/
-    //map_markers.add(pos_marker);
-
-    //location_map = RGMap(markers: map_markers,);
-    /*location_map = GoogleMap(
-      mapType: MapType.terrain,
-      initialCameraPosition: CameraPosition(target: LatLng(0.0, 0.0)),
-      markers: Set<Marker>.from(map_markers),
-      onMapCreated: _onMapCreated,
-      myLocationEnabled: true,
-      myLocationButtonEnabled: true,
-      compassEnabled: true,
-    );*/
-
-    //print(RandoGo.availableRando);
     RandoGo.availableRando.forEach((r) {
       if (r.points.length != 0) {
         Marker new_marker = Marker(
@@ -184,7 +105,6 @@ class RGLocationState extends State<RGLocation> {
   @override
   void initState() {
     getIcons();
-    //initiateLocalisation();
     super.initState();
   }
 }

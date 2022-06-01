@@ -121,12 +121,9 @@ class RGFollowRandoMapState extends State<RGFollowRandoMap> {
 
       //detect si a l'arrive
       LatLng cur_pos = LatLng(currentLocation.latitude ?? 0.0, currentLocation.longitude ?? 0.0);
-      //LatLng cur_pos
 
       if (endPoint.longitude != 0.0 && endPoint.latitude != 0.0) {
         double dist = calculateDistance(endPoint.latitude, endPoint.longitude, cur_pos.latitude, cur_pos.longitude);
-
-        print(dist.toString());
 
         //dist en km
         if (dist < 0.005 && !end) {

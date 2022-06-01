@@ -46,7 +46,6 @@ class RandoGo extends StatelessWidget {
       onGenerateRoute: (settings) {
 
         if (settings.name == "/app") {
-          //final Data arguments = settings.arguments as Data;
           if (RandoGo.currentUser != null) {
             return MaterialPageRoute(builder: (context) {
               return MainMenu();
@@ -59,7 +58,6 @@ class RandoGo extends StatelessWidget {
         }
       },
       onUnknownRoute: (settings) {
-        //return MaterialPageRoute(builder: (context) => NotFound());
         return MaterialPageRoute(builder: (context) => Unknow());
       },
     );

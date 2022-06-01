@@ -46,9 +46,6 @@ class MapPointState extends State<MapPoint>{
         zoomControlsEnabled: false,
         markers: Set.from(map_markers),
         onTap: _handleTap,
-        /*  map_markers.add(Marker(markerId: MarkerId('mark'), position: latLng));
-          this.markers: Set.from(map_markers);
-          markers: Set.from(map_markers),*/
       ),
       drawer: RGDrawer(),
       bottomNavigationBar: RGBottomBarCreation(onClicked: () {},point_number: pn,),

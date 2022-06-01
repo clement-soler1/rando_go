@@ -3,13 +3,11 @@ import 'package:rando_go/flutter/cards/all_cards.dart';
 import 'package:rando_go/flutter/main.dart';
 import 'package:rando_go/flutter/widget/profile_widget.dart';
 import 'package:rando_go/flutter/view/account_edit.dart';
-import 'package:rando_go/flutter/utils/user_prefs.dart';
 
 class Account extends StatelessWidget {
   static String routeName = '/account';
   @override
   Widget build(BuildContext context) {
-    //final user = UserPreferences.myUser; -> to the dechetterie
 
     //handle profile img :
     String? p_image = RandoGo.currentUser!.imagePath;
@@ -40,7 +38,6 @@ class Account extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Account_edit()),
                     );
                   },),
-                  //Image(image: AssetImage('images/profile.png')),
                   Text(name,style: TextStyle(color: Colors.white,fontSize: 35),),
                   Padding(padding: EdgeInsets.all(20)),
                   Text("Membre depuis xx/xx/xxxx",style: TextStyle(color: Colors.white,fontSize: 25),),

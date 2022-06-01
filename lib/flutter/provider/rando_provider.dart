@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:rando_go/flutter/all_layout.dart';
-import 'dart:collection'; // nouveaux types de listes comme UnmodifiableListView
-import 'dart:convert'; // pour decoder la r ́eponse http
+import 'dart:collection';
+import 'dart:convert';
 //import of model
 import 'package:rando_go/flutter/model/Rando.dart';
 import 'package:rando_go/flutter/main.dart';
