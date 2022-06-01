@@ -11,3 +11,4 @@ export 'package:rando_go/flutter/view/create_user.dart';
 export 'package:rando_go/flutter/view/user_created.dart';
 export 'package:rando_go/flutter/view/map_point.dart';
 export 'package:rando_go/flutter/view/follow_rando_map.dart';
+export 'package:rando_go/flutter/view/endRando.dart';

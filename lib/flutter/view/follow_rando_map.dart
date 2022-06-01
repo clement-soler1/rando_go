@@ -124,7 +124,7 @@ class RGFollowRandoMapState extends State<RGFollowRandoMap> {
         double dist = calculateDistance(endPoint.latitude, endPoint.longitude, cur_pos.latitude, cur_pos.longitude);
 
         if (dist < 3.0) {
-          //TO DO vistory view + back to menu
+          Navigator.pushNamed(context,"/follow_rando/end");
         }
 
       }
