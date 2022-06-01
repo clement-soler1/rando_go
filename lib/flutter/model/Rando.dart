@@ -41,4 +41,12 @@ class Rando {
     provider.fetchRandoPoints(this);
   }
 
+  int getID() {
+    return id;
+  }
+
+  String getName() {
+    return name;
+  }
+
 }

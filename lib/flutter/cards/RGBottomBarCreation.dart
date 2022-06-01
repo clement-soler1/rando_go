@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class RGBottomBarCreation extends StatelessWidget with PreferredSizeWidget{
   final bool isVisible;
   final VoidCallback onClicked;
+  final int point_number;
 
   RGBottomBarCreation({
     this.isVisible = true,
     required this.onClicked,
+    required this.point_number,
   });
 
   @override
@@ -24,7 +26,7 @@ class RGBottomBarCreation extends StatelessWidget with PreferredSizeWidget{
             child: Icon(Icons.directions_walk, color: Colors.white),
           ),
           Expanded(
-            child: Text('Point n°', textAlign: TextAlign.left,style: const TextStyle(color: Colors.white,fontSize: 24)),
+            child: Text('Point n°' + this.point_number.toString(), textAlign: TextAlign.left,style: const TextStyle(color: Colors.white,fontSize: 24)),
           ),
           Visibility(
             child: Expanded(

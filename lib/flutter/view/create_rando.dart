@@ -9,6 +9,7 @@ class RGCreateRando extends StatefulWidget {
   static String routeName = '/rando/create';
 
   static int? availableID;
+  static Rando? randoInCreation;
 
   @override
   RGCreateRandoState createState() => new RGCreateRandoState();
@@ -54,9 +55,12 @@ class RGCreateRandoState extends State<RGCreateRando> {
   void createRando() {
       Rando r = Rando(id: RGCreateRando.availableID ?? -1,name: nom_controller.text,creator: RandoGo.currentUser!.getEmail(),points: []);
 
+      RGCreateRando.randoInCreation = r;
+
       RandoProvider provider = new RandoProvider();
       provider.addRando(r);
 
       //go to creation de point
+      Navigator.pushNamed(context,"/mappoint");
   }
 }

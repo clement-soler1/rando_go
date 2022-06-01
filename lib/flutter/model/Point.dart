@@ -34,4 +34,25 @@ class Point {
       'direction': direction,
     };
   }
+
+  int getNumber() {
+    return number;
+  }
+
+  double getLat() {
+    return lat;
+  }
+  double getLong() {
+    return long;
+  }
+
+  String getDir() {
+    return direction;
+  }
+
+  void setModif(String lat, String long, String desc) {
+    this.lat = double.parse(lat);
+    this.long = double.parse(long);
+    this.direction = desc;
+  }
 }

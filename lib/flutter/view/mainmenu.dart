@@ -34,7 +34,9 @@ class MainMenu extends StatelessWidget {
                     RGButton(label: "Mon Compte", width: 300, height: 100,onPressed: () => {
                       Navigator.pushNamed(context,"/account")
                     },),
-                    RGButton(label: "Quitter", width: 300, height: 100,onPressed: () => {},),
+                    RGButton(label: "Quitter", width: 300, height: 100,onPressed: () => {
+
+                    },),
                   ],
                 )
 

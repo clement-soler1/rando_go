@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -112,6 +113,8 @@ class RGFollowRandoMapState extends State<RGFollowRandoMap> {
       }
     }
 
+    bool end = false;
+
     _locationData = await location.getLocation();
 
     location.onLocationChanged.listen((LocationData currentLocation) {
@@ -123,8 +126,16 @@ class RGFollowRandoMapState extends State<RGFollowRandoMap> {
       if (endPoint.longitude != 0.0 && endPoint.latitude != 0.0) {
         double dist = calculateDistance(endPoint.latitude, endPoint.longitude, cur_pos.latitude, cur_pos.longitude);
 
-        if (dist < 3.0) {
+        print(dist.toString());
+
+        //dist en km
+        if (dist < 0.005 && !end) {
           Navigator.pushNamed(context,"/follow_rando/end");
+          end = true;
+
+          cur_pos = LatLng(0.0, 0.0);
+
+          this.dispose();
         }
 
       }
