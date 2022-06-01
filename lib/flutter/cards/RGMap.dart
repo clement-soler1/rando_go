@@ -70,6 +70,7 @@ class RGMapState extends State<RGMap> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
+        zoomControlsEnabled: false,
     );
   }
 

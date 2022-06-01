@@ -111,6 +111,15 @@ class UserFormState extends State<UserForm> {
                 Text("Prénom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
                 new Flexible(
                   child: new TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Prénom',
+                      border: OutlineInputBorder(),
+                      filled: true,
+                      fillColor: Colors.white,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                      )
+                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Ce champ est obligatoire';
@@ -131,6 +140,15 @@ class UserFormState extends State<UserForm> {
                 Text("Nom : ",style: TextStyle(color: Colors.white,fontSize: 25),),
                 new Flexible(
                   child: new TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Nom',
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        )
+                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Ce champ est obligatoire';
@@ -151,6 +169,16 @@ class UserFormState extends State<UserForm> {
                 Text("Mot de passe : ",style: TextStyle(color: Colors.white,fontSize: 25),),
                 new Flexible(
                   child: new TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        hintText: 'Mot de passe',
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        )
+                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Ce champ est obligatoire';
@@ -171,6 +199,15 @@ class UserFormState extends State<UserForm> {
                 Text("Email : ",style: TextStyle(color: Colors.white,fontSize: 25),),
                 new Flexible(
                   child: new TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Email',
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        )
+                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Ce champ est obligatoire';
