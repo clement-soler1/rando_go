@@ -3,7 +3,7 @@ import 'package:rando_go/flutter/cards/all_cards.dart';
 
 
 class Orders extends StatelessWidget {
-  static String routeName = '/Orders';
+  static String routeName = '/orders';
   @override
   Widget build(BuildContext context) {
 
