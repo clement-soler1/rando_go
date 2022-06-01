@@ -1,14 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:rando_go/flutter/cards/all_cards.dart';
-import 'package:location/location.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rando_go/flutter/main.dart';
-import 'package:rando_go/flutter/model/Rando.dart';
-import 'package:rando_go/flutter/model/Point.dart';
-
-
 
 
 class RGEndRando extends StatefulWidget {

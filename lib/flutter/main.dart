@@ -40,8 +40,8 @@ class RandoGo extends StatelessWidget {
         RGLocation.routeName : (context) => RGLocation(),
         RGFollowRandoMap.routeName : (context) => RGFollowRandoMap(randoFollowed: currentRando ?? Rando(id: -1, name: "name", creator: "creator", points: [])),
         Create_Point.routeName : (context) => Create_Point(),
-        RGFollowRandoMap.routeName : (context) => RGFollowRandoMap(randoFollowed: currentRando ?? Rando(id: -1, name: "name", creator: "creator", points: [])),
         RGEndRando.routeName : (context) => RGEndRando(),
+        RGCreateRando.routeName : (context) => RGCreateRando(),
       },
       onGenerateRoute: (settings) {
 
