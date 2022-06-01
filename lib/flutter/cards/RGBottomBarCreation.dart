@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class RGBottomBarCreation extends StatelessWidget with PreferredSizeWidget{
-  final bool isCreating;
+  final bool isVisible;
   final VoidCallback onClicked;
 
   RGBottomBarCreation({
-    this.isCreating = false,
+    this.isVisible = true,
     required this.onClicked,
   });
 
@@ -26,24 +26,24 @@ class RGBottomBarCreation extends StatelessWidget with PreferredSizeWidget{
           Expanded(
             child: Text('Point n°', textAlign: TextAlign.left,style: const TextStyle(color: Colors.white,fontSize: 24)),
           ),
-          Expanded(
-            child: Ink(
-              decoration: const ShapeDecoration(
+          Visibility(
+            child: Expanded(
+              child: Ink(
+                decoration: const ShapeDecoration(
                   color: Colors.white,
                   shape: CircleBorder(),
                 ),
                 child: IconButton(
                   padding: new EdgeInsets.all(0.0),
-                  icon: Icon(
-                    //Icons.my_location, size: 25, color: Colors.black,
-                    isCreating ? Icons.cancel : Icons.my_location,
-                    color: Colors.black,
-                    size: 25
+                  icon: const Icon(
+                    Icons.my_location, size: 25, color: Colors.black,
                   ),
                   onPressed: () {},
                   splashRadius: 22.0,
                 ),
+              ),
             ),
+            visible: isVisible,
           ),
           Container(height: 55.0),
         ],

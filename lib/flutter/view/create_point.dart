@@ -55,8 +55,7 @@ class Create_Point extends StatelessWidget {
           ),
         ],
       ),
-      drawer: RGDrawer(),
-      bottomNavigationBar: RGBottomBarCreation(isCreating: true,onClicked: () {}),
+      bottomNavigationBar: RGBottomBarCreation(isVisible: false,onClicked: () {Navigator.pop(context);}),
     );
   }
 }

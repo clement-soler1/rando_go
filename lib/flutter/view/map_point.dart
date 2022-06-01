@@ -11,8 +11,6 @@ class MapPoint extends StatefulWidget {
 }
 
 class MapPointState extends State<MapPoint>{
-  Location location = new Location();
-  LocationData? _locationData;
 
   GoogleMapController? mapController;
 
@@ -26,13 +24,18 @@ class MapPointState extends State<MapPoint>{
       //appBar: ,
       body: GoogleMap(
         mapType: MapType.terrain,
-        initialCameraPosition: CameraPosition(target: LatLng(0.0, 0.0)),
-        markers: Set<Marker>.from(map_markers),
+        initialCameraPosition: CameraPosition(target: LatLng(43.1380, 6.0132),zoom: 9.0,),
         onMapCreated: _onMapCreated,
         myLocationEnabled: true,
         myLocationButtonEnabled: true,
         compassEnabled: true,
         zoomControlsEnabled: false,
+        onTap: (LatLng latLng) {
+          map_markers.add(Marker(markerId: MarkerId('mark'), position: latLng));
+          setState(() {});
+          print(latLng);
+        },
+        markers: Set<Marker>.from(map_markers),
       ),
       drawer: RGDrawer(),
       bottomNavigationBar: RGBottomBarCreation(onClicked: () {}),
@@ -44,20 +47,8 @@ class MapPointState extends State<MapPoint>{
             right: 0,
             child: FloatingActionButton(
               backgroundColor: Color(0xFF247000),
-              onPressed: () {/* Do something */},
-              child: const Icon(
-                Icons.touch_app,
-                size: 40,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 210,
-            right: 0,
-            child: FloatingActionButton(
-              backgroundColor: Color(0xFF247000),
               onPressed: () {
-                Navigator.of(context).push(
+                Navigator.push(context,
                 MaterialPageRoute(builder: (context) => Create_Point()),
               );},
               child: const Icon(
@@ -66,8 +57,6 @@ class MapPointState extends State<MapPoint>{
               ),
             ),
           ),
-          // Add more floating buttons if you want
-          // There is no limit
         ],
       ),
     );
