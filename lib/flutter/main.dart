@@ -60,7 +60,7 @@ class RandoGo extends StatelessWidget {
       },
       onUnknownRoute: (settings) {
         //return MaterialPageRoute(builder: (context) => NotFound());
-        return MaterialPageRoute(builder: (context) => MainMenu());
+        return MaterialPageRoute(builder: (context) => Unknow());
       },
     );
   }
