@@ -18,7 +18,11 @@ class Create_Point extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20),
-                  child: Image.asset('images/balise.png'),
+                  child: IconButton(
+                    icon: Image.asset('images/balise.png'),
+                    iconSize: 130,
+                    onPressed: () {},
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20),
@@ -31,9 +35,7 @@ class Create_Point extends StatelessWidget {
         ],
       ),
       drawer: RGDrawer(),
-      bottomNavigationBar: RGBottomBarCreation(),
-
-
+      bottomNavigationBar: RGBottomBarCreation(isCreating: true,onClicked: () {}),
     );
   }
 }
