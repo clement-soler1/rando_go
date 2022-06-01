@@ -14,3 +14,4 @@ export 'package:rando_go/flutter/view/map_point.dart';
 export 'package:rando_go/flutter/view/follow_rando_map.dart';
 export 'package:rando_go/flutter/view/endRando.dart';
 export 'package:rando_go/flutter/view/unknow.dart';
+export 'package:rando_go/flutter/view/create_rando.dart';

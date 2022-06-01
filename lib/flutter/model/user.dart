@@ -33,6 +33,10 @@ class User {
       'phonenumber': phonenumber,
     };
   }
+
+  String getEmail() {
+    return email;
+  }
 }
 
 

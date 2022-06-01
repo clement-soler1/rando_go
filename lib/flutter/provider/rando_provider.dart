@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:rando_go/flutter/all_layout.dart';
 import 'dart:collection'; // nouveaux types de listes comme UnmodifiableListView
 import 'dart:convert'; // pour decoder la r ́eponse http
 //import of model
@@ -32,6 +33,19 @@ class RandoProvider with ChangeNotifier {
           r.getPointFromBDD()
         });
 
+        notifyListeners();
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  void getAvailableId() async {
+    try {
+      http.Response response = await http.get(Uri.parse('$host/api/rando_available_id'));
+      if (response.statusCode == 200) {
+
+        RGCreateRando.availableID = json.decode(response.body);
         notifyListeners();
       }
     } catch (e) {

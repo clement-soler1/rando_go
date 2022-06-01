@@ -29,7 +29,7 @@ class MainMenu extends StatelessWidget {
                       Navigator.pushNamed(context,"/location")
                     },),
                     RGButton(label: "Créer une randonnée", width: 300, height: 100,onPressed: () => {
-
+                      Navigator.pushNamed(context,"/rando/create")
                     },),
                     RGButton(label: "Mon Compte", width: 300, height: 100,onPressed: () => {
                       Navigator.pushNamed(context,"/account")
