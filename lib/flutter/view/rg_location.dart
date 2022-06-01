@@ -136,6 +136,8 @@ class RGLocationState extends State<RGLocation> {
           );*/
 
           //TO DO : lancer la rando
+          RandoGo.currentRando = r;
+          Navigator.pushNamed(context,"/follow_rando/map",);
         },
         /*infoWindow: InfoWindow(
           title: r.name,

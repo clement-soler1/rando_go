@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:rando_go/flutter/all_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +15,7 @@ class RandoGo extends StatelessWidget {
 
   static User? currentUser = null;
   static List<Rando> availableRando = [];
+  static Rando? currentRando;
 
   // This widget is the root of your application.
   @override
@@ -35,8 +38,10 @@ class RandoGo extends StatelessWidget {
         Orders.routeName : (context) => Orders(),
         MapPoint.routeName : (context) => MapPoint(),
         RGLocation.routeName : (context) => RGLocation(),
+        RGFollowRandoMap.routeName : (context) => RGFollowRandoMap(randoFollowed: currentRando ?? Rando(id: -1, name: "name", creator: "creator", points: []))
       },
       onGenerateRoute: (settings) {
+
         if (settings.name == "/app") {
           //final Data arguments = settings.arguments as Data;
           if (RandoGo.currentUser != null) {
